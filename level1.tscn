@@ -1,14 +1,42 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://tiles_spritesheet.png" type="Texture" id=3]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_stand.png" type="Texture" id=2]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_jump.png" type="Texture" id=3]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk01.png" type="Texture" id=4]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk02.png" type="Texture" id=5]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk03.png" type="Texture" id=6]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk04.png" type="Texture" id=7]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk05.png" type="Texture" id=8]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk06.png" type="Texture" id=9]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk07.png" type="Texture" id=10]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk08.png" type="Texture" id=11]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk09.png" type="Texture" id=12]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk10.png" type="Texture" id=13]
+[ext_resource path="res://platformerGraphicsDeluxe_Updated/Player/p1_walk/PNG/p1_walk11.png" type="Texture" id=14]
+[ext_resource path="res://tiles_spritesheet.png" type="Texture" id=15]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 31.6287, 32.0461 )
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 27.8575
+height = 40.0684
 
-[sub_resource type="ConvexPolygonShape2D" id=2]
-points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "Idle",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Jump",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
+"loop": true,
+"name": "Walk",
+"speed": 12.0
+} ]
 
 [sub_resource type="ConvexPolygonShape2D" id=3]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
@@ -16,9 +44,15 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 [sub_resource type="ConvexPolygonShape2D" id=4]
 points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 
-[sub_resource type="TileSet" id=5]
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
+
+[sub_resource type="TileSet" id=6]
 0/name = "tiles_spritesheet.png 0"
-0/texture = ExtResource( 3 )
+0/texture = ExtResource( 15 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 504, 0, 70, 70 )
@@ -35,12 +69,6 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 "autotile_coord": Vector2( 0, 0 ),
 "one_way": false,
 "one_way_margin": 0.0,
-"shape": SubResource( 2 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
-"autotile_coord": Vector2( 0, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
 "shape": SubResource( 3 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
@@ -49,13 +77,34 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 "one_way_margin": 1.0,
 "shape": SubResource( 4 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
+1/name = "tiles_spritesheet.png 1"
+1/texture = ExtResource( 15 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 648, 0, 70, 70 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 635, 246 )
 mode = 2
 contacts_reported = 1
@@ -63,18 +112,23 @@ contact_monitor = true
 linear_damp = 0.5
 script = ExtResource( 1 )
 
-[node name="icon2" type="Sprite" parent="RigidBody2D"]
-texture = ExtResource( 2 )
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="RigidBody2D"]
+frames = SubResource( 2 )
+animation = "Idle"
+
+[node name="Camera2D" type="Camera2D" parent="RigidBody2D"]
+position = Vector2( 0.834229, -19.3119 )
+current = true
 
 [node name="TileMap" type="TileMap" parent="." groups=[
 "Ground",
 ]]
-tile_set = SubResource( 5 )
+tile_set = SubResource( 6 )
 cell_size = Vector2( 70, 70 )
 format = 1
-tile_data = PoolIntArray( 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0 )
+tile_data = PoolIntArray( -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, 12, 0, 0, 13, 0, 0, 17, 0, 0, 18, 0, 0, 65548, 0, 0, 65553, 0, 0, 65554, 0, 0, 131089, 0, 0, 196622, 0, 0, 196623, 0, 0, 196624, 0, 0, 262159, 0, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 327690, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327695, 0, 0 )
 
 [connection signal="body_entered" from="RigidBody2D" to="RigidBody2D" method="_on_RigidBody2D_body_entered"]
